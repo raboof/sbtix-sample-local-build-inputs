@@ -8,8 +8,9 @@ let
   sbtix = pkgs.callPackage ./sbtix.nix {};
 in
   sbtix.buildSbtProgram {
-    name = "sbtix-sample-nix-managed-dependencies";
+    name = "sbtix-sample-build-inputs";
     src = cleanSource ./.;
+    sbtixBuildInputs = (pkgs.callPackage ./sbtix-build-inputs.nix {});
     repo = [
       (import ./repo.nix)
       (import ./project/repo.nix)

@@ -1,7 +1,10 @@
+import net.ruippeixotog.scalascraper.browser.JsoupBrowser
+import org.apache.commons.vfs2.util.URIUtils
+
 @main
 def main =
-  // TODO use custom API from branch
-  // TODO use class from additional transitive commons-vfs2 dependency
-  // TODO check manually that nscala-time is no longer part of the
-  // build closure
-  println("Hello, world")
+  // Using a custom API from branch
+  println(new JsoupBrowser().myCustomMethod())
+  // Using a dependency that was not part of the original dependency:
+  println(URIUtils.encodePath("@#$?"))
+
